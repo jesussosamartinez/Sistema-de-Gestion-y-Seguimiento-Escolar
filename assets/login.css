@@ -1,0 +1,64 @@
+/* Formulario de Inicio de Sesión */
+
+body {
+    background-image: url("../assets/img/EDIFICIOG.JPG");
+    background-size:cover;
+    width: auto;
+}
+
+.form {
+    background-color: #F9F9F9;
+    width: 300px;
+    height: 300px;
+    border-radius: 15px;
+    margin-bottom: 5rem;
+}
+
+.txt {
+    font-family: Raleway;
+    font-size: 1.2rem;
+    padding-top: 1.5rem;
+    padding-bottom: .5rem;
+    font-weight: 800;
+    color: #1E3563;
+    text-transform: uppercase;
+}
+
+.txt-inputs{
+    font-family: Montserrat;
+    font-size: .8rem;
+    color: #1E3563;
+    text-transform: uppercase;
+    font-weight: 800;
+    padding-left: .7rem;
+}
+
+.input-group{
+    padding-left: 2.0rem;
+}
+
+#btn {
+    width: 12rem;
+}
+
+#btn:hover {
+    background-color: #1E3563;
+    box-shadow: 2em;
+}
+
+#input-acceder{
+    padding-left: 5.5rem;
+}
+
+#return {
+    padding-left: 1rem;
+}
+
+.bi-arrow-left-circle-fill{
+    font-size: 2rem;
+    color: #1C2833;
+}
+
+.bi-arrow-left-circle-fill:hover{
+    color: #1E3563;
+}
