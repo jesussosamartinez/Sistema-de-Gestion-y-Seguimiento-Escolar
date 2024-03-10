@@ -22,6 +22,7 @@ $("#ModalEdicion").on("show.bs.modal", function (event) {
   var correoDepartamento = button.data("correo"); // Extraer la información de atributos de datos
   var nDepto = button.data("nombre"); // Extraer la información de atributos de datos
   var contraseña = button.data("contraseña"); // Extraer la información de atributos de datos
+  var usuario_id = button.data("usuario"); // Extraer la información de atributos de datos
 
   var modal = $(this);
   modal.find(".modal-body #idDepartamento").val(id);
@@ -29,6 +30,7 @@ $("#ModalEdicion").on("show.bs.modal", function (event) {
   modal.find(".modal-body #nombreDep").val(nDepto);
   modal.find(".modal-body #correoDepartamento").val(correoDepartamento);
   modal.find(".modal-body #contraseña").val(contraseña);
+  modal.find(".modal-body #usuario_id").val(usuario_id);
   $(".alert").hide(); //Oculto alert
 });
 
@@ -50,3 +52,44 @@ $("#editardepartamentos").submit(function( event ) {
      });
   
    });
+
+   //limpiar el formulario
+function limpiar(){
+  $("#jefe_Departamento").val("");
+  $("#nombre_Departamento").val("");
+  $("#correo_Departamento").val("");
+  $("#contraseña").val("");
+ }
+
+   //jquery para agregar departamentos
+   $("#agregardepartamentos").submit(function( event ) {
+		event.preventDefault();
+		var parametros = $(this).serialize();
+			$.ajax({
+				   type: "POST",
+				   url: "../ajax/departamentos.php?op=añadirdepartamentos",
+				   data: parametros,
+				   success: function(datos){
+				   
+				   alertify.alert('REGISTRO DEPARTAMENTOS',datos, function(){ 
+					   table.ajax.reload();
+								});
+				   limpiar();
+				 }
+		   });
+		
+	   });
+
+    //función para eliminar departamento
+	  function eliminar(usuario_id){
+
+      alertify.confirm('ELIMINACIÓN DEPARTAMENTO',"¿Está Seguro de eliminar Departamento?", function(e){
+      $.post("../ajax/departamentos.php?op=eliminarDepartamento", {usuario_id : usuario_id}, 
+      function(){
+        alertify.success("Departamento Eliminado")
+        table.ajax.reload();
+      })
+    },function(){
+        alertify.error("Departamento No Eliminado")
+      });
+    }

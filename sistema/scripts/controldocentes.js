@@ -14,6 +14,15 @@ let table = new DataTable('#tblcontroldocentes', {
 	    "order": [[ 0, "asc" ]]//Ordenar (columna,orden)
 });
 
+//limpiar el formulario
+function limpiar(){
+    $("#nombreD").val("");
+    $("#nombre_depto").selectpicker('refresh');
+    $("#correoDoc").val("");
+    $("#contraseña").val("");
+   }
+
+
 
     $("#añadirDocentes").submit(function( event ) {
 		event.preventDefault();
@@ -27,7 +36,7 @@ let table = new DataTable('#tblcontroldocentes', {
 				   alertify.alert('REGISTRO DOCENTES',datos, function(){ 
 					   table.ajax.reload();
 								});
-				   
+				   limpiar();
 				 }
 		   });
 		
