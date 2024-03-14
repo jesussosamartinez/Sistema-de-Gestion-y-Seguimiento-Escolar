@@ -110,7 +110,7 @@ $("#ModalEditarSeguimientoI").on("show.bs.modal", function (event) {
   });
 
   function activar(idControl){
-    alertify.confirm('SEGUIMIENTO III','¿Estás Seguro de Activar?', function(){ 
+    alertify.confirm('SEGUIMIENTO I','¿Estás Seguro de Activar?', function(){ 
     $.post("../ajax/seguimientoI.php?op=activarBtnEditar", { idControl : idControl }, function(e){
     alertify.success('Activado')
     table.ajax.reload();
@@ -120,7 +120,7 @@ $("#ModalEditarSeguimientoI").on("show.bs.modal", function (event) {
   }
 
   function desactivar(idControl){
-    alertify.confirm('SEGUIMIENTO III','¿Estás Seguro de Desactivar?', function(){ 
+    alertify.confirm('SEGUIMIENTO I','¿Estás Seguro de Desactivar?', function(){ 
       $.post("../ajax/seguimientoI.php?op=desactivarBtnEditar", { idControl : idControl }, function(e){
       table.ajax.reload();
     tableI.ajax.reload();
